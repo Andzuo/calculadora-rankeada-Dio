@@ -1,10 +1,11 @@
-let vitorias = 10;
+let vitorias = 80;
 let derrotas = 10;
 let nivel = "";
 
-function WinValue(nivel) {
-    let saldoVitorias = vitorias - derrotas;
-    if (saldoVitorias > 0) {
+let saldoVitorias = vitorias - derrotas
+
+function WinValue(saldoVitorias, nivel = "") {
+    if (saldoVitorias <= 0) {
         nivel = "ferro";
     } else if (saldoVitorias >= 11 && saldoVitorias <= 20) {
         nivel = "bronze";
@@ -19,7 +20,8 @@ function WinValue(nivel) {
     } else if (saldoVitorias >= 101) {
         nivel = "imortal";
     }
-    return saldoVitorias
+    return nivel
 }
+nivel = WinValue(saldoVitorias)
 
-console.log("o heroi tem saldo de" + saldoVitorias + "está no nível de" + nivel)
+console.log("o heroi tem saldo de: " + saldoVitorias + ", está no nível:" + nivel)
